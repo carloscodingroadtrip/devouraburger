@@ -2,7 +2,7 @@
   "name": "devouraburger",
   "version": "1.0.0",
   "description": "Order a burger, and devour it! Project using Node, Express and MySQL",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,16 +1,10 @@
-DROP DATABASE IF EXISTS burgersDB;
-CREATE DATABASE burgersDB;
+CREATE DATABASE burgers_db;
+USE burgers_db;
 
-USE burgersDB;
-
--- Created the table "burgers"
-CREATE TABLE burgers (
-  id int AUTO_INCREMENT,
-  burger_name varchar(60) NOT NULL,
-  devoured BOOLEAN default 1,
-  createdAt TIMESTAMP NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY(id)
+CREATE TABLE burgers
+(
+	id int NOT NULL AUTO_INCREMENT,
+	name varchar(255) NOT NULL,
+	devoured BOOLEAN DEFAULT false,
+	PRIMARY KEY (id)
 );
-
-
-
