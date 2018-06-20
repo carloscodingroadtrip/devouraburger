@@ -1,13 +1,13 @@
 // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
-const EXPRESS = require('express');
-const ROUTER  = EXPRESS.Router();
-const API_CONTROLLER = require('../controllers/api_controller');
+const express = require('express');
+const router = express.Router();
+const api_controller = require('../controllers/api_controller');
 
-ROUTER.get('/', API_CONTROLLER.total);
-ROUTER.post('/burgers', API_CONTROLLER.new);
-ROUTER.delete("/burgers/:id", API_CONTROLLER.destroy);
-ROUTER.put("/burgers/:id", API_CONTROLLER.change);
-ROUTER.put("/burgers/nameChange/:id", API_CONTROLLER.nameChange);
-module.exports = ROUTER;
+router.get('/', api_controller.total);
+router.post('/burgers', api_controller.new);
+router.delete('/burgers/:id', api_controller.destroy);
+router.put('/burgers/:id', api_controller.change);
+router.put('/burgers/nameChange/:id', api_controller.nameChange);
+module.exports = router;
