@@ -1,7 +1,7 @@
-const BURGER = require('../models/burgers.js');
+const burger = require('../models/burgers.js');
 
 exports.total = function(req, res) {
-	BURGER.all(function(data) {
+	burger.all(function(data) {
 		var hbsObject = {
 			burgers: data,
 		};
@@ -11,7 +11,7 @@ exports.total = function(req, res) {
 };
 
 exports.new = function(req, res) {
-	BURGER.create(['name', 'devoured'], [req.body.name, req.body.devoured], function(result) {
+	burger.create(['name', 'devoured'], [req.body.name, req.body.devoured], function(result) {
 		// Send back the ID of the new quote
 		res.json({ id: result.insertId });
 	});
@@ -19,7 +19,7 @@ exports.new = function(req, res) {
 
 exports.destroy = function(req, res) {
 	var condition = 'id = ' + req.params.id;
-	BURGER.delete(condition, function(result) {
+	burger.delete(condition, function(result) {
 		if (result.affectedRows == 0) {
 			// If no rows were changed, then the ID must not exist, so 404
 			return res.status(404).end();
@@ -31,7 +31,7 @@ exports.destroy = function(req, res) {
 exports.change = function(req, res) {
 	var condition = 'id = ' + req.params.id;
 	console.log('condition', condition);
-	BURGER.update(
+	burger.update(
 		{
 			devoured: req.body.devoured,
 		},
@@ -49,7 +49,7 @@ exports.change = function(req, res) {
 exports.nameChange = function(req, res) {
 	var condition = 'id = ' + req.params.id;
 	console.log('condition', condition);
-	BURGER.update(
+	burger.update(
 		{
 			name: req.body.name,
 		},
